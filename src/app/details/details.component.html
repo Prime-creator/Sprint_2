@@ -1,0 +1,58 @@
+<!--nav bar-->
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <a class="navbar-brand" href="/delete">CUSTOMER DETAILS</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/manager">CUSTOMER SECTION</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<!--nav bar-->
+<form #customerForm="ngForm" (ngSubmit)="onSubmit()">
+    <input required type="text" [(ngModel)]="customerId" name="something" [pattern]="idPattern" #id="ngModel"
+        placeholder="Enter your CustomerId..." minlength="4" class="search" />
+    <button type="submit" class="btn btn-secondary">Search</button>
+
+    <!--table-->
+    <table class="table" *ngIf="(customer | json) != '{}'">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Gender</th>
+                <th scope="col">PAN card</th>
+                <th scope="col">Aadhar card</th>
+                <th scope="col">Contact</th>
+                <th scope="col">Country</th>
+                <th scope="col">state</th>
+                <th scope="col">Date of birth</th>
+                <th scope="col">permanent address</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">{{customer.customerName}}</th>
+                <td>{{customer.customerGender}}</td>
+                <td>{{customer.customerPAN}}</td>
+                <td>{{customer.customerAadhar}}</td>
+                <td>{{customer.customerContact}}</td>
+                <td>{{customer.customerState}}</td>
+                <td>{{customer.customerCountry}}</td>
+                <td>{{customer.customerDob}}</td>
+                <td>{{customer.permanentAddress}}</td>
+            </tr>
+
+        </tbody>
+    </table>
+    <!--table-->
+</form>

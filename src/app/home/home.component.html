@@ -1,0 +1,183 @@
+<div class="bg">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top ">
+        <a class="navbar-brand" href="#">Pecunia Management System</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" routerLink="/aboutUs">About Us</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Our services
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Account Management</a>
+                        <a class="dropdown-item" href="#">Loan Management</a>
+                        <a class="dropdown-item" href="#">Transaction Management</a>
+                    </div>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+    <h1>Our services</h1>
+    <!--our main motive-->
+    <div class="card-group">
+        <div class="card">
+            <img src="https://www.mindgate.in/wp-content/uploads/2019/08/b.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Transactions</h5>
+                <p class="card-text">Quick and efficient Transactions</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://images.financialexpress.com/2020/02/HOME-LOAN-HIKE1200X800-1.jpg?w=1200&h=800&imflag=true"
+                class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Loan</h5>
+                <p class="card-text">easy and fast loan sanctions</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="data:image/png;base64,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"
+                class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">24*7 support</h5>
+                <p class="card-text">our team is ready to help you 24*7</p>
+            </div>
+        </div>
+    </div>
+    <!--become our customer-->
+    <div class="jumbotron text-center">
+        <h1 class="display-3 mt-4">BE OUR CUSTOMER</h1>
+        <button type="button" class="btn btn-secondary btn-lg" routerLink="/manager">ADD CUSTOMER</button>
+    </div>
+    <!--become our customer-->
+
+    <!--what our customer says-->
+
+    <div class="card-columns">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Mr. khanna </h5>
+                <p class="card-text">The employees in pecunia is very efficient and makes transaction very fast.</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Mr. rahul</h5>
+                <p class="card-text">With help of pecunia i bought my dream house.</p>
+                <p class="card-text"><small class="text-muted">mr. rahul</small></p>
+            </div>
+        </div>
+        <div class="card bg-primary text-white text-center p-3">
+            <blockquote class="blockquote mb-0">
+                <p>WHAT OUR CUSTOMERS SAYS.</p>
+                <footer class="blockquote-footer text-white">
+                </footer>
+            </blockquote>
+        </div>
+        <div class="card text-center">
+            <div class="card-body">
+                <h5 class="card-title">Mrs. sweta</h5>
+                <p class="card-text">fast and efficient transactions.</p>
+                <p class="card-text"><small class="text-muted">Mrs. sweta</small></p>
+            </div>
+        </div>
+
+        <div class="card p-3 text-right">
+            <blockquote class="blockquote mb-0">
+                <p>Great service.</p>
+                <footer class="blockquote-footer">
+                    <small class="text-muted">
+                        Mr. singh
+                    </small>
+                </footer>
+            </blockquote>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Mr. jaiswal</h5>
+                <p class="card-text">pecunia makes loan management so easy and fast.</p>
+                <p class="card-text"><small class="text-muted">Mr. jaiswal</small></p>
+            </div>
+        </div>
+    </div>
+
+    <!--what our customer says-->
+
+    <!--contact us-->
+    <h2 class="text-center">Contact Us</h2>
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-8 col-lg-6 pb-5">
+
+
+            <!--Form with header-->
+
+            <form action="mail.php" method="post">
+                <div class="card border-primary rounded-0">
+                    <div class="card-header p-0">
+                        <div class="bg-info text-white text-center py-2">
+                            <h3><i class="fa fa-envelope"></i> contact Form</h3>
+                            <p class="m-0">We have 24*7 customer service</p>
+                        </div>
+                    </div>
+                    <div class="card-body p-3">
+
+                        <!--Body-->
+                        <div class="form-group">
+                            <div class="input-group mb-2">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text"><i class="fa fa-user text-info"></i></div>
+                                </div>
+                                <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Name"
+                                    required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group mb-2">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text"><i class="fa fa-envelope text-info"></i></div>
+                                </div>
+                                <input type="email" class="form-control" id="nombre" name="email"
+                                    placeholder="email@gmail.com" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="input-group mb-2">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text"><i class="fa fa-comment text-info"></i></div>
+                                </div>
+                                <textarea class="form-control" placeholder="Query" required></textarea>
+                            </div>
+                        </div>
+
+                        <div class="text-center">
+                            <input type="submit" value="submit" class="btn btn-info btn-block rounded-0 py-2">
+                        </div>
+                    </div>
+
+                </div>
+            </form>
+            <!--Form with header-->
+
+
+        </div>
+    </div>
+    <!--contact us-->
+</div>
+
+<!--contact us-->

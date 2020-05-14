@@ -1,0 +1,4 @@
+create table accountmanagement_tbl(
+ account_balance int NOT NULL, 
+ account_type varchar(10) NOT NULL, 
+ customer_id int NOT NULL unique);

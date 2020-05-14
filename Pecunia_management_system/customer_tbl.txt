@@ -1,0 +1,12 @@
+create table customer_tbl(
+ customer_id int primary key NOT NULL,
+ customer_aadhar varchar(12) NOT NULL,  
+ customer_contact varchar(30) NOT NULL,
+ customer_country varchar(30) NOT NULL,
+ customer_dob  varchar(20) NOT NULL,
+ customer_gender varchar(6) NOT NULL,
+ customer_name varchar(20) NOT NULL,
+ customer_pan varchar(10) NOT NULL,
+ customer_state varchar(30) NOT NULL,
+ permanent_address  varchar(50) NOT NULL,
+ temporary_address varchar(30));  

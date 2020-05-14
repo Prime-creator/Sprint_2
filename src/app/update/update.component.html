@@ -1,0 +1,185 @@
+<!------ Include the above in your HEAD tag ---------->
+<!-- <div style="text-align: center">
+    <h1>{{message}}</h1>
+</div> -->
+<!--nav bar-->
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <a class="navbar-brand" href="/delete">UPDATE FORM</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/manager">CUSTOMER SECTION</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<!--nav bar-->
+<h1 *ngIf="submitted" [ngClass]="'success'" style="text-align: center">
+    Form updated successfully.
+</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <form (ngSubmit)="onSubmit()" #customerForm="ngForm">
+                <fieldset>
+                    <legend class="text-center">Valid information is required to register. <span class="req"><small>
+                                required *</small></span></legend>
+
+                    <div class="form-group">
+                        <label for="Name"><span class="req">* </span> Name: <small>please enter the customer Name
+                            </small> </label>
+                        <input required type="text" [(ngModel)]="customer.customerName" [pattern]="unamePattern"
+                            #uname="ngModel" name="customerName" id="customerName" class="form-control phone"
+                            maxlength="28" placeholder="Enter your fullname..." minlength="4" />
+                        <div *ngIf="uname.touched && !uname.valid" [ngClass]="'error'">
+                            <div *ngIf="uname.errors.required">
+                                User name required.
+                            </div>
+                            <div *ngIf="uname.errors.pattern">
+                                User name not valid.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class=" form-group">
+                        <label for="customerPAN"><span class="req">* </span> PAN card number: </label>
+                        <input class="form-control" type="text" [(ngModel)]="customer.customerPAN"
+                            [pattern]="panPattern" #pan="ngModel" name="customerPAN" id="txt" required
+                            placeholder="Enter 10 digit valid pan card number" />
+                        <div id="errFirst"></div>
+
+                        <div *ngIf="pan.touched && !pan.valid" [ngClass]="'error'">
+                            <div *ngIf="pan.errors.required">
+                                PAN card number required.
+                            </div>
+                            <div *ngIf="pan.errors.pattern">
+                                PAN card number not valid.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="customerAadhar"><span class="req">* </span> Aadhar card number : </label>
+                        <input class="form-control" type="text" [(ngModel)]="customer.customerAadhar"
+                            [pattern]="aadharPattern" #aadhar="ngModel" name="customerAadhar" id="txt"
+                            placeholder="Enter 12 digit valid aadhar card number" required />
+                        <div id="errLast"></div>
+                        <div *ngIf="aadhar.touched && !aadhar.valid" [ngClass]="'error'">
+                            <div *ngIf="aadhar.errors.required">
+                                aadhar card number required.
+                            </div>
+                            <div *ngIf="aadhar.errors.pattern">
+                                aadhar card number not valid.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="customerContact"><span class="req">* </span> contact number: </label>
+                        <input class="form-control" required type="text" [(ngModel)]="customer.customerContact"
+                            [pattern]="mobnumPattern" #mobnum="ngModel" name="customerContact" id="customerContact"
+                            placeholder="customerContact" />
+                        <div class="status" id="status"></div>
+                        <div *ngIf="mobnum.touched && !mobnum.valid" [ngClass]="'error'">
+                            <div *ngIf="mobnum.errors.required">
+                                contact number required.
+                            </div>
+                            <div *ngIf="mobnum.errors.pattern">
+                                contact number not valid.
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="customerGender"><span class="req">* </span> Gender: </label>
+                        <input class="form-control" required type="text" [(ngModel)]="customer.customerGender"
+                            name="customerGender" id="customerGender" placeholder="customerGender" />
+                        <div class="status" id="status"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="customerDob"><span class="req">* </span> Date of birth: </label>
+                        <input class="form-control" required type="text" [(ngModel)]="customer.customerDob"
+                            [pattern]="datePattern" #date="ngModel" name="customerDob" id="customerDob"
+                            placeholder="customerDob eg:- 1999-01-01" />
+                        <div class="status" id="status"></div>
+                        <div *ngIf="date.touched && !date.valid" [ngClass]="'error'">
+                            <div *ngIf="date.errors.required">
+                                date required.
+                            </div>
+                            <div *ngIf="date.errors.pattern">
+                                date not valid.
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="permanentAddress"><span class="req">* </span> permanent Address </label>
+                        <input class="form-control" required type="text" [(ngModel)]="customer.permanentAddress"
+                            #permanentAddress="ngModel" name="permanentAddress" id="permanentAddress"
+                            placeholder="permanentAddress" />
+                        <div class="status" id="status"></div>
+
+                        <div *ngIf="permanentAddress.touched && !permanentAddress.valid" [ngClass]="'error'">
+                            <div *ngIf="permanentAddress.errors.required">
+                                permanentAddress required.
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="temporaryAddress">temporary Address </label>
+                        <input class="form-control" required type="text" [(ngModel)]="customer.temporaryAddress"
+                            name="temporaryAddress" id="temporaryAddress" placeholder="temporaryAddress" />
+                        <div class="status" id="status"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="customerState"><span class="req">* </span> State </label>
+                        <input class="form-control" required type="text" [(ngModel)]="customer.customerState"
+                            [pattern]="statePattern" #state="ngModel" name="customerState" id="customerState"
+                            placeholder="customerState" />
+                        <div class="status" id="status"></div>
+
+                        <div *ngIf="state.touched && !state.valid" [ngClass]="'error'">
+                            <div *ngIf="state.errors.required">
+                                state required.
+                            </div>
+                            <div *ngIf="state.errors.pattern">
+                                state not valid.
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="customerCountry"><span class="req">* </span> country</label>
+                        <input class="form-control" required type="text" [(ngModel)]="customer.customerCountry"
+                            [pattern]="countryPattern" #country="ngModel" name="customerCountry" id="customerCountry"
+                            placeholder="customerCountry" pattern="[A-Za-z]" />
+                        <div class="status" id="status"></div>
+                        <div *ngIf="country.touched && !country.valid" [ngClass]="'error'">
+                            <div *ngIf="country.errors.required">
+                                country required.
+                            </div>
+                            <div *ngIf="country.errors.pattern">
+                                country not valid.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button [disabled]="!customerForm.valid">update</button>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,203 @@
+<!--nav bar-->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <a class="navbar-brand" href="/register">REGISTERATION FORM</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/manager">CUSTOMER SECTION</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<!--nav bar-->
+<h1 *ngIf="heading" [ngClass]="'success'" style="text-align: center">
+    Form submitted successfully.
+</h1>
+
+<div style="text-align: center">
+    <h1>{{message}}</h1>
+
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <form #customerForm="ngForm">
+                <fieldset>
+                    <legend class="text-center">Valid information is required to register. <span class="req"><small>
+                                required *</small></span></legend>
+
+                    <div class="form-group">
+                        <label for="Name"><span class="req">* </span> Name: <small>please enter the customer Name(FULL
+                                NAME REQUIRED)
+                            </small> </label>
+                        <input required type="text" [(ngModel)]="customer.customerName" [pattern]="unamePattern"
+                            #uname="ngModel" name="customerName" id="customerName" class="form-control phone"
+                            maxlength="28" placeholder="Enter your fullname..." minlength="4" />
+                        <div *ngIf="uname.errors && customerForm.submitted && !isValidFormSubmitted"
+                            [ngClass]="'error'">
+                            <div *ngIf="uname.errors.required">
+                                User name required.
+                            </div>
+                            <div *ngIf="uname.errors.pattern">
+                                User name not valid.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class=" form-group">
+                        <label for="firstname"><span class="req">* </span> PAN card number: </label>
+                        <input class="form-control" type="text" [(ngModel)]="customer.customerPAN"
+                            [pattern]="panPattern" #pan="ngModel" name="customerPAN" id="txt" required
+                            placeholder="Enter 10 digit valid pan card number" />
+                        <div id="errFirst"></div>
+
+                        <div *ngIf="pan.errors && customerForm.submitted && !isValidFormSubmitted" [ngClass]="'error'">
+                            <div *ngIf="pan.errors.required">
+                                PAN card number required.
+                            </div>
+                            <div *ngIf="pan.errors.pattern">
+                                PAN card number not valid.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="lastname"><span class="req">* </span> Aadhar card number : </label>
+                        <input class="form-control" type="text" [(ngModel)]="customer.customerAadhar"
+                            [pattern]="aadharPattern" #aadhar="ngModel" name="customerAadhar" id="txt"
+                            placeholder="Enter 12 digit valid aadhar card number" required />
+                        <div id="errLast"></div>
+                        <div *ngIf="aadhar.errors && customerForm.submitted && !isValidFormSubmitted"
+                            [ngClass]="'error'">
+                            <div *ngIf="aadhar.errors.required">
+                                aadhar card number required.
+                            </div>
+                            <div *ngIf="aadhar.errors.pattern">
+                                aadhar card number not valid.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email"><span class="req">* </span> contact number: </label>
+                        <input class="form-control" required type="text" [(ngModel)]="customer.customerContact"
+                            [pattern]="mobnumPattern" #mobnum="ngModel" name="customerContact" id="customerContact"
+                            placeholder="customerContact" />
+                        <div class="status" id="status"></div>
+                        <div *ngIf="mobnum.errors && customerForm.submitted && !isValidFormSubmitted"
+                            [ngClass]="'error'">
+                            <div *ngIf="mobnum.errors.required">
+                                contact number required.
+                            </div>
+                            <div *ngIf="mobnum.errors.pattern">
+                                contact number not valid.
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="email"><span class="req">* </span> Gender: </label>
+                        <input class="form-control" required type="text" [(ngModel)]="customer.customerGender"
+                            [pattern]="genderPattern" #gender="ngModel" name="customerGender" id="customerGender"
+                            placeholder="customerGender" />
+                        <div class="status" id="status"></div>
+                        <div *ngIf="gender.errors && customerForm.submitted && !isValidFormSubmitted"
+                            [ngClass]="'error'">
+                            <div *ngIf="gender.errors.required">
+                                gender required.
+                            </div>
+                            <div *ngIf="gender.errors.pattern">
+                                Give a valid format.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email"><span class="req">* </span> Date of birth: </label>
+                        <input class="form-control" required type="text" [(ngModel)]="customer.customerDob"
+                            [pattern]="datePattern" #date="ngModel" name="customerDob" id="customerDob"
+                            placeholder="customerDob eg:- 09-01-29" />
+                        <div class="status" id="status"></div>
+                        <div *ngIf="date.errors && customerForm.submitted && !isValidFormSubmitted" [ngClass]="'error'">
+                            <div *ngIf="date.errors.required">
+                                date required.
+                            </div>
+                            <div *ngIf="date.errors.pattern">
+                                date not valid.
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="email"><span class="req">* </span> permanent Address </label>
+                        <input class="form-control" required type="text" [(ngModel)]="customer.permanentAddress"
+                            #permanentAddress="ngModel" name="permanentAddress" id="permanentAddress"
+                            placeholder="permanentAddress" />
+                        <div class="status" id="status"></div>
+                        <div *ngIf="permanentAddress.errors && customerForm.submitted && !isValidFormSubmitted"
+                            [ngClass]="'error'">
+                            <div *ngIf="permanentAddress.errors.required">
+                                permanentAddress required.
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="email">temporary Address </label>
+                        <input class="form-control" required type="text" [(ngModel)]="customer.temporaryAddress"
+                            name="temporaryAddress" id="temporaryAddress" placeholder="temporaryAddress" />
+                        <div class="status" id="status"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email"><span class="req">* </span> State </label>
+                        <input class="form-control" required type="text" [(ngModel)]="customer.customerState"
+                            [pattern]="statePattern" #state="ngModel" name="customerState" id="customerState"
+                            placeholder="customerState" />
+                        <div class="status" id="status"></div>
+
+                        <div *ngIf="state.errors && customerForm.submitted && !isValidFormSubmitted"
+                            [ngClass]="'error'">
+                            <div *ngIf="state.errors.required">
+                                state required.
+                            </div>
+                            <div *ngIf="state.errors.pattern">
+                                state not valid.
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="email"><span class="req">* </span> country</label>
+                        <input class="form-control" required type="text" [(ngModel)]="customer.customerCountry"
+                            [pattern]="countryPattern" #country="ngModel" name="customerCountry" id="customerCountry"
+                            placeholder="customerCountry" pattern="[A-Za-z]" />
+                        <div class="status" id="status"></div>
+                        <div *ngIf="country.errors && customerForm.submitted && !isValidFormSubmitted"
+                            [ngClass]="'error'">
+                            <div *ngIf="country.errors.required">
+                                country required.
+                            </div>
+                            <div *ngIf="country.errors.pattern">
+                                country not valid.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input class="btn btn-success" type="submit" name="submit_reg" value="Register"
+                            (click)="registerNow(customerForm)">
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+
+    </div>
+</div>
